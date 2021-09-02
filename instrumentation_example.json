@@ -1,0 +1,12 @@
+[
+  {
+    "projectId": "project001",
+    "accessKeyId": "psanders",
+    "sipDomain": "cola.fonoster.io",
+    "eventsServer": "ws://api.fonoster.io/roxanne",
+    "signalServer": "ws://sip.fonoster.io:5062",
+    "targetAOR": "sip:ast@node1",
+    "displayName": "Roxanne Assistant",
+    "didInfo": "9842753568"
+  }
+]

@@ -4,8 +4,7 @@ networks:
   fonos:
 
 services:
-
-  ghauth:
+  instrumentation:
     image: fonoster/instrumentation:latest
     labels:
       - "traefik.enable=true"
@@ -13,13 +12,7 @@ services:
       - "traefik.http.services.ghauth.loadbalancer.server.port=3000"
       - "traefik.http.routers.ghauth.rule=PathPrefix(`/auth/github/callback`)"
     environment: 
-      - CLIENT_ID
-      - CLIENT_SECRET
-      - CALLBACK_URL
-      - ENDPOINT
-      - PAGE_TITLE
-      - PAGE_MESSAGE
-      - ACCESS_LIST
+      - CONFIG
     volumes:
       - ${CONFIG}/config:/home/fonos/.fonos/config
       - ${CONFIG}/instrumentation.json:/home/fonos/.fonos/instrumentation.json

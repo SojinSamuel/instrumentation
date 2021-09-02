@@ -42,10 +42,11 @@ docker run -it \
 Run environment variables are used in the entry point script to render configuration templates. You can specify the values of these variables during `docker run`, `docker-compose up`, or in Kubernetes manifests in the `env` array.
 
 - `CONFIG` - Contains the credentials and endpoint information to connect with an Fonos API Server.
+- `APISERVER_ENDPOINT` - API endpoint to a Fonos' server.
 
 ## Exposed ports
 
-- `3000` - Default http port for restful API
+- `3000` - Http port for restful API
 
 ## Volumes
 

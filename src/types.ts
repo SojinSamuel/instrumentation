@@ -7,5 +7,16 @@ export interface Instrumentation {
   clientDisplayName: string;
   clientUsername: string;
   clientSecret: string;
-  domain: string;
+  sipDomain: string;
+}
+
+export interface ProjectInfo {
+  projectId: string;
+  accessKeyId: string;
+  sipDomain: string;
+  eventsServer: string;
+  signalServer: string;
+  targetAOR: string;
+  displayName: string;
+  didInfo: string;
 }
