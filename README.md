@@ -2,7 +2,7 @@
 
 > Takes an instrumentation key and returns creates new resources
 
-![publish to docker](https://github.com/fonoster/fonos-nodejsmc/workflows/publish%20to%20docker%20hub/badge.svg)
+![publish to docker](https://github.com/fonoster/instrumentation/workflows/publish%20to%20docker%20hub/badge.svg)
 
 This service takes a request with an intrumentation key, typically from a webclient, and creates a set of resources such as a SIP User Agent, Domains, etc. 
 
