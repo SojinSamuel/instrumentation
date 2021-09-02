@@ -1,0 +1,25 @@
+{
+  "name": "instrumentation",
+  "version": "#{FONOS_VERSION}",
+  "description": "Generate credentials and other data in behalf of a fonos user",
+  "main": "./src/index.js",
+  "bin": {
+    "run": "./src/index.js",
+    "healthcheck": "./src/healthcheck.js"
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=dev nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pedro Sanders <psanders@fonoster.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@fonos/auth": "^#{FONOS_VERSION}",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
