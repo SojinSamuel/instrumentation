@@ -12,7 +12,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.ghauth.entrypoints=websecure"
       - "traefik.http.services.ghauth.loadbalancer.server.port=3000"
-      - "traefik.http.routers.ghauth.rule=PathPrefix(`/intrumentation`)"
+      - "traefik.http.routers.ghauth.rule=PathPrefix(`/instrumentation`)"
     volumes:
       - ${CONFIG}/config:/home/fonos/.fonos/config
       - ${CONFIG}/instrumentation.json:/home/fonos/.fonos/instrumentation.json
