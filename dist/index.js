@@ -113,7 +113,7 @@ app.get("/instrumentation/:key", function (req, res) { return __awaiter(void 0, 
                 _a.sent();
                 res.status(200).send({
                     signalServer: projectInfo.signalServer,
-                    eventsServer: projectInfo.signalServer,
+                    eventsServer: projectInfo.eventsServer,
                     targetAOR: projectInfo.targetAOR,
                     didInfo: projectInfo.didInfo,
                     sipDomain: projectInfo.sipDomain,
