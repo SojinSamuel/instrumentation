@@ -4,10 +4,10 @@
   "description": "Generate credentials and other data in behalf of a fonos user",
   "main": "./src/index.js",
   "bin": {
-    "run": "./dist/index.js",
-    "healthcheck": "./dist/healthcheck.js"
+    "run": "./dist/index.js"
   },
   "scripts": {
+    "build": "tsc",
     "start": "cross-env NODE_ENV=dev nodemon src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
