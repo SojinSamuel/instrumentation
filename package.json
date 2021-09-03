@@ -1,6 +1,6 @@
 {
   "name": "instrumentation",
-  "version": "^#{FONOS_VERSION}",
+  "version": "#{FONOS_VERSION}",
   "description": "Generate credentials and other data in behalf of a fonos user",
   "main": "./src/index.js",
   "bin": {
