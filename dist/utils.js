@@ -58,12 +58,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getProjectInfo = void 0;
 var path = __importStar(require("path"));
 var INSTRUMENTATION_FILE = process.env.INSTRUMENTATION || path.join(require("os").homedir(), ".fonos", "intrumentation.json");
+var projects;
+try {
+    projects = require(INSTRUMENTATION_FILE);
+}
+catch (e) {
+    console.log("Instrumentation file not found or file is malformed.");
+    process.exit(1);
+}
 function getProjectInfo(projectId) {
     return __awaiter(this, void 0, void 0, function () {
-        var projects, result;
+        var result;
         return __generator(this, function (_a) {
             try {
-                projects = require(INSTRUMENTATION_FILE);
                 result = projects.filter(function (project) { return project.projectId === projectId; })[0];
                 if (!result) {
                     throw "Not found";

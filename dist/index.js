@@ -63,17 +63,20 @@ var express_1 = __importDefault(require("express"));
 var agents_1 = __importDefault(require("@fonos/agents"));
 var auth_1 = __importDefault(require("@fonos/auth"));
 var faker_1 = __importDefault(require("faker"));
+var js_base64_1 = require("js-base64");
 var app = (0, express_1.default)();
-app.use(express_1.default.json());
 var port = 3000;
-app.get("/instrumentation", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+app.get("/instrumentation/:key", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var projectId, projectInfo, auth, credentials, agents, username, secret, e_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                projectId = req.body.projectId;
-                if (!projectId) {
-                    res.status(405).send("Bad request.");
+                try {
+                    projectId = JSON.parse((0, js_base64_1.decode)(req.params.key)).projectId;
+                }
+                catch (e) {
+                    console.error(e);
+                    res.status(405).send("Bad request. Please double check your instrumentation key.");
                     return [2 /*return*/];
                 }
                 _a.label = 1;
@@ -84,6 +87,7 @@ app.get("/instrumentation", function (req, res) { return __awaiter(void 0, void 
                 projectInfo = _a.sent();
                 if (!projectInfo) {
                     res.status(404).send("Not found.");
+                    return [2 /*return*/];
                 }
                 auth = new auth_1.default();
                 return [4 /*yield*/, auth.createToken({
@@ -134,6 +138,6 @@ app.get("/ping", function (req, res) { return __awaiter(void 0, void 0, void 0, 
     });
 }); });
 app.listen(port, function () {
-    console.log("Service listening at http://localhost:" + port + "/instrumentation");
+    console.log("Service listening @ localhost:" + port);
 });
 //# sourceMappingURL=index.js.map

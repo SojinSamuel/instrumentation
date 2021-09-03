@@ -7,12 +7,12 @@ services:
   instrumentation:
     image: fonoster/instrumentation:latest
     ports:
-      - 3000:3000
+      - 30001:3000
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.ghauth.entrypoints=websecure"
-      - "traefik.http.services.ghauth.loadbalancer.server.port=3000"
-      - "traefik.http.routers.ghauth.rule=PathPrefix(`/instrumentation`)"
+      - "traefik.http.routers.instrumentation.entrypoints=websecure"
+      - "traefik.http.services.instrumentation.loadbalancer.server.port=3000"
+      - "traefik.http.routers.instrumentation.rule=PathPrefix(`/instrumentation`)"
     volumes:
       - ${CONFIG}/config:/home/fonos/.fonos/config
       - ${CONFIG}/instrumentation.json:/home/fonos/.fonos/instrumentation.json
