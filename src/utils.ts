@@ -18,13 +18,20 @@
  */
 import { ProjectInfo } from "./types";
 import * as path from "path";
+const INSTRUMENTATION_FILE =
+  process.env.INSTRUMENTATION || path.join(require("os").homedir(), ".fonos", "intrumentation.json");
 
-const CONFIG_FILE =
-  process.env.CONFIG || path.join(require("os").homedir(), ".fonos", "intrumentation.json");
+let projects;
+
+try {
+  projects = require(INSTRUMENTATION_FILE);
+} catch(e) {
+  console.log("Instrumentation file not found or file is malformed.");
+  process.exit(1);
+}
 
 export async function getProjectInfo(projectId: string): Promise<ProjectInfo> {
   try {
-    const projects = require(CONFIG_FILE);
     const result = projects.filter(project => project.projectId === projectId)[0]
     if (!result) {
       throw "Not found"

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /*
  * Copyright (C) 2021 by Fonoster Inc (https://fonoster.com)
  * http://github.com/fonoster/fonos
@@ -21,24 +22,28 @@ import express from "express";
 import Agents from "@fonos/agents";
 import Auth from "@fonos/auth";
 import faker from "faker";
+import { decode } from "js-base64";
 
 const app = express();
-app.use(express.json());
 const port = 3000;
 
-app.get("/instrumentation", async(req, res) => {
-  const projectId = req.body.projectId;
-  if (!projectId) {
-    res.status(405).send("Bad request.");
-    return
+app.get("/instrumentation/:key", async(req, res) => {
+  let projectId: string;
+  try {
+    projectId = JSON.parse(decode(req.params.key)).projectId;
+  } catch(e) {
+    console.error(e);
+    res.status(405).send("Bad request. Please double check your instrumentation key.");
+    return;
   }
 
   try {
     const projectInfo = await getProjectInfo(projectId);
     if (!projectInfo) {
       res.status(404).send("Not found.");
+      return;
     }
-    
+
     const auth = new Auth();
     const credentials = await auth.createToken({
       accessKeyId: projectInfo.accessKeyId,
@@ -81,5 +86,5 @@ app.get("/ping", async(req, res) => {
 })
 
 app.listen(port, () => {
-  console.log(`Service listening at http://localhost:${port}/instrumentation`)
+  console.log(`Service listening @ localhost:${port}`)
 })

@@ -1,2 +1,3 @@
-CONFIG=PATH TO YOUR PF CONFIG FILE
-SIGNAL_SERVER=ws://sip.fonoster.io:5062
+# Change if your Fonos' API endpoint is different
+# APISERVER_ENDPOINT=api.fonoster.io
+CONFIG=PATH TO FOLDER HOLDING CONFIG

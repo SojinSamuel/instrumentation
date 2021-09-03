@@ -6,13 +6,13 @@ networks:
 services:
   instrumentation:
     image: fonoster/instrumentation:latest
+    ports:
+      - 3000:3000
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.ghauth.entrypoints=websecure"
       - "traefik.http.services.ghauth.loadbalancer.server.port=3000"
-      - "traefik.http.routers.ghauth.rule=PathPrefix(`/auth/github/callback`)"
-    environment: 
-      - CONFIG
+      - "traefik.http.routers.ghauth.rule=PathPrefix(`/intrumentation`)"
     volumes:
       - ${CONFIG}/config:/home/fonos/.fonos/config
       - ${CONFIG}/instrumentation.json:/home/fonos/.fonos/instrumentation.json
