@@ -55,6 +55,9 @@ app.get("/instrumentation/:key", async(req, res) => {
       accessKeyId: projectInfo.accessKeyId,
       accessKeySecret: credentials.token
     });
+
+    // TODO: Perhaps we should use some pattern that will make it
+    // easy to find and delete the account.
     const username = faker.internet.userName().toLowerCase();
     const secret = faker.internet.password(10);
 
@@ -67,7 +70,7 @@ app.get("/instrumentation/:key", async(req, res) => {
 
     res.status(200).send({
       signalServer: projectInfo.signalServer,
-      eventsServer: projectInfo.signalServer,
+      eventsServer: projectInfo.eventsServer,
       targetAOR:projectInfo.targetAOR,
       didInfo: projectInfo.didInfo,
       sipDomain: projectInfo.sipDomain,
