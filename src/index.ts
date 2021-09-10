@@ -23,8 +23,11 @@ import Agents from "@fonos/agents";
 import Auth from "@fonos/auth";
 import faker from "faker";
 import { decode } from "js-base64";
+import cors from "cors";
 
 const app = express();
+app.use(cors());
+
 const port = 3000;
 
 app.get("/instrumentation/:key", async(req, res) => {
