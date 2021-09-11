@@ -64,7 +64,9 @@ var agents_1 = __importDefault(require("@fonos/agents"));
 var auth_1 = __importDefault(require("@fonos/auth"));
 var faker_1 = __importDefault(require("faker"));
 var js_base64_1 = require("js-base64");
+var cors_1 = __importDefault(require("cors"));
 var app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 var port = 3000;
 app.get("/instrumentation/:key", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var projectId, projectInfo, auth, credentials, agents, username, secret, e_1;
