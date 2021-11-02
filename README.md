@@ -15,7 +15,7 @@ You can see all images available to pull from Docker Hub via the [Tags](https://
 You can clone this repository and manually build it.
 
 ```
-cd fonos-nodejsmc
+cd instrumentation
 docker build -t fonoster/instrumentation:%%VERSION%% .
 ```
 
@@ -31,10 +31,10 @@ The following is a minimal example of using this image.
 
 ```bash
 docker run -it \
-    -v /path/to/config:/home/fonos/.fonos/config
-    -v /path/to/instrumentation.json:/home/fonos/.fonos/instrumentation.json
-    -p 4573:4573 \
-    fonoster/instrumentation
+  -v /path/to/config:/home/fonoster/.fonoster/config
+  -v /path/to/instrumentation.json:/home/fonoster/.fonoster/instrumentation.json
+  -p 4573:4573 \
+  fonoster/instrumentation
 ```
 
 ## Environment Variables
@@ -42,7 +42,7 @@ docker run -it \
 Run environment variables are used in the entry point script to render configuration templates. You can specify the values of these variables during `docker run`, `docker-compose up`, or in Kubernetes manifests in the `env` array.
 
 - `INSTRUMENTATION` - Instrumentation file.
-- `APISERVER_ENDPOINT` - API endpoint to a Fonos' server.
+- `APISERVER_ENDPOINT` - Fonoster's API endpoint
 
 ## Exposed ports
 
@@ -50,12 +50,12 @@ Run environment variables are used in the entry point script to render configura
 
 ## Volumes
 
-- `/home/fonos/.fonos/config` - Fonos connection config.
-- `/home/fonos/.fonos/instrumentation.json` - File with instrumentation info, such as productId, accessKeyId, etc.
+- `/home/fonoster/.fonoster/config` - Fonoster connection config.
+- `/home/fonoster/.fonoster/instrumentation.json` - File with instrumentation info, such as productId, accessKeyId, etc.
 
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://github.com/fonoster/fonos/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING.md](https://github.com/fonoster/fonoster/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
@@ -65,4 +65,4 @@ See also the list of contributors who [participated](https://github.com/fonoster
 
 ## License
 
-Copyright (C) 2020 by Fonoster Inc. MIT License (see [LICENSE](https://github.com/fonoster/fonos/blob/master/LICENSE) for details).
+Copyright (C) 2020 by Fonoster Inc. MIT License (see [LICENSE](https://github.com/fonoster/fonoster/blob/master/LICENSE) for details).

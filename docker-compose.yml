@@ -1,7 +1,7 @@
-version: '3.3'
+version: '3.7'
 
 networks:
-  fonos:
+  fonoster:
 
 services:
   instrumentation:
@@ -14,7 +14,7 @@ services:
       - "traefik.http.services.instrumentation.loadbalancer.server.port=3000"
       - "traefik.http.routers.instrumentation.rule=PathPrefix(`/instrumentation`)"
     volumes:
-      - ${CONFIG}/config:/home/fonos/.fonos/config
-      - ${CONFIG}/instrumentation.json:/home/fonos/.fonos/instrumentation.json
+      - ${CONFIG}/config:/home/fonoster/.fonoster/config
+      - ${CONFIG}/instrumentation.json:/home/fonoster/.fonoster/instrumentation.json
     networks:
-      fonos:
+      fonoster:
