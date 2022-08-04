@@ -57,7 +57,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getProjectInfo = void 0;
 var path = __importStar(require("path"));
-var INSTRUMENTATION_FILE = process.env.INSTRUMENTATION || path.join(require("os").homedir(), ".fonos", "instrumentation.json");
+var INSTRUMENTATION_FILE = process.env.INSTRUMENTATION || path.join(require("os").homedir(), ".fonoster", "instrumentation.json");
 var projects;
 try {
     projects = require(INSTRUMENTATION_FILE);

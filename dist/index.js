@@ -60,8 +60,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
  */
 var utils_1 = require("./utils");
 var express_1 = __importDefault(require("express"));
-var agents_1 = __importDefault(require("@fonos/agents"));
-var auth_1 = __importDefault(require("@fonos/auth"));
+var agents_1 = __importDefault(require("@fonoster/agents"));
+var auth_1 = __importDefault(require("@fonoster/auth"));
+var logger_1 = __importDefault(require("@fonoster/logger"));
 var faker_1 = __importDefault(require("faker"));
 var js_base64_1 = require("js-base64");
 var cors_1 = __importDefault(require("cors"));
@@ -77,7 +78,7 @@ app.get("/instrumentation/:key", function (req, res) { return __awaiter(void 0, 
                     projectId = JSON.parse((0, js_base64_1.decode)(req.params.key)).projectId;
                 }
                 catch (e) {
-                    console.error(e);
+                    logger_1.default.error(e);
                     res.status(405).send("Bad request. Please double check your instrumentation key.");
                     return [2 /*return*/];
                 }
@@ -94,8 +95,8 @@ app.get("/instrumentation/:key", function (req, res) { return __awaiter(void 0, 
                 auth = new auth_1.default();
                 return [4 /*yield*/, auth.createToken({
                         accessKeyId: projectInfo.accessKeyId,
-                        roleName: "USER",
-                        expiration: "1d"
+                        roleName: "PROJECT",
+                        expiration: "10m"
                     })];
             case 3:
                 credentials = _a.sent();

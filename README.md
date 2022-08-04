@@ -31,11 +31,19 @@ The following is a minimal example of using this image.
 
 ```bash
 docker run -it \
-  -v /path/to/config:/home/fonoster/.fonoster/config
-  -v /path/to/instrumentation.json:/home/fonoster/.fonoster/instrumentation.json
-  -p 4573:4573 \
+  -v /path/to/config:/home/fonoster/.fonoster/config \
+  -v /path/to/instrumentation.json:/home/fonoster/.fonoster/instrumentation.json \
+  -p 3000:3000 \
   fonoster/instrumentation
 ```
+
+You can then retrieve the instrumentation object with:
+
+```bash
+curl http://localhost:3000/instrumentation/e3Byb2plY3RJZDogInRlc3Rwcm9qZWN0In0=
+```
+
+> The instrumentation string is a base64 encoded json object (e.g. `{projectId: "testproject"}`)
 
 ## Environment Variables
 

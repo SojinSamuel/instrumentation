@@ -1,7 +1,7 @@
 {
-  "name": "instrumentation",
-  "version": "0.2",
-  "description": "Generate credentials and other data in behalf of a fonos user",
+  "name": "@fonoster/instrumentation",
+  "version": "0.3",
+  "description": "Generate credentials and other data in behalf of a Fonoster user",
   "main": "./src/index.js",
   "bin": {
     "run": "./dist/index.js"
@@ -14,8 +14,8 @@
   "author": "Pedro Sanders <psanders@fonoster.com>",
   "license": "MIT",
   "dependencies": {
-    "@fonoster/agents": "^#{FONOSTER_VERSION}",
-    "@fonoster/auth": "^#{FONOSTER_VERSION}",
+    "@fonoster/agents": "0.3.12",
+    "@fonoster/auth": "0.3.12",
     "express": "^4.17.1",
     "faker": "^5.5.3",
     "js-base64": "^3.6.1",

@@ -19,8 +19,9 @@
  */
 import { getProjectInfo } from "./utils";
 import express from "express";
-import Agents from "@fonos/agents";
-import Auth from "@fonos/auth";
+import Agents from "@fonoster/agents";
+import Auth from "@fonoster/auth";
+import logger from "@fonoster/logger";
 import faker from "faker";
 import { decode } from "js-base64";
 import cors from "cors";
@@ -35,7 +36,7 @@ app.get("/instrumentation/:key", async(req, res) => {
   try {
     projectId = JSON.parse(decode(req.params.key)).projectId;
   } catch(e) {
-    console.error(e);
+    logger.error(e);
     res.status(405).send("Bad request. Please double check your instrumentation key.");
     return;
   }
@@ -50,8 +51,8 @@ app.get("/instrumentation/:key", async(req, res) => {
     const auth = new Auth();
     const credentials = await auth.createToken({
       accessKeyId: projectInfo.accessKeyId,
-      roleName: "USER",
-      expiration: "1d"
+      roleName: "PROJECT",
+      expiration: "10m"
     })
 
     const agents = new Agents({

@@ -19,7 +19,7 @@
 import { ProjectInfo } from "./types";
 import * as path from "path";
 const INSTRUMENTATION_FILE =
-  process.env.INSTRUMENTATION || path.join(require("os").homedir(), ".fonos", "instrumentation.json");
+  process.env.INSTRUMENTATION || path.join(require("os").homedir(), ".fonoster", "instrumentation.json");
 
 let projects;
 
