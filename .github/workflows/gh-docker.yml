@@ -1,10 +1,8 @@
 name: publish to docker hub
 on:
+  push:
+    branches: [ main ]
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version number'
-        required: true
 jobs:
   build:
     runs-on: ubuntu-latest
