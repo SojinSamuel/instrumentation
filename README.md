@@ -4,7 +4,7 @@
 
 ![publish to docker](https://github.com/fonoster/instrumentation/workflows/publish%20to%20docker%20hub/badge.svg)
 
-This service takes a request with an intrumentation key, typically from a webclient, and creates a set of resources such as a SIP User Agent, Domains, etc. 
+This service takes a request with an instrumentation key, typically from a webclient, and creates a set of resources such as a SIP User Agent, Domains, etc. 
 
 ## Available Versions
 
